@@ -1,0 +1,58 @@
+<div class="container">
+      <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-login">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col">
+                <center><h2 style="margin-left:150px;">APM - CMCG</h2></center>
+              </div>
+           
+            </div>
+            <hr>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <div class="form-group" style="width:80%; margin-left:60px;">
+                    <%= f.email_field :email, autofocus: true, :class => 'form-control', :placeholder => 'Seu usuário' %>
+                  </div>
+                  <div class="form-group" style="width:80%; margin-left:60px;">
+                    <%= f.password_field :password, autocomplete: "off", :class => 'form-control', :placeholder => 'Sua senha' %>
+                  </div>
+                  <div class="form-group text-center" style="margin-left:60px;">
+                    <% if devise_mapping.rememberable? -%>
+                      <div class="field">
+                        <%= f.check_box :remember_me %>
+                        <%= f.label :"Lembrar" %>
+                      </div>
+                    <% end -%>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-6 col-sm-offset-3">
+                        <center>
+                        <%= f.submit "Acessar Sistema" , :class => 'btn btn-login', :style => "width:190px;" %>
+                      </center>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="text-center">
+                          <center><a href="http://www.facebook.com/digisoft" tabindex="5" class="forgot-password">DigiSoft</a></center>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

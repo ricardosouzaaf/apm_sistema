@@ -13,53 +13,53 @@
 
   <div class="field">
     <%= f.check_box :default_bank %>
-    <%= f.label :default_bank %><br>
+    <%= f.label :"Banco Principal", :style => 'color:red;' %><br>
   </div>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :"Nome do Banco" %><br>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :cedente %><br>
+    <%= f.label :"Cedente" %><br>
     <%= f.text_field :cedente %>
   </div>
 
   <div class="field">
-    <%= f.label :cedente_doc %><br>
+    <%= f.label :"Cedente Documento" %><br>
     <%= f.text_field :cedente_doc %>
   </div>
 
   <div class="field">
-    <%= f.label :agencia %><br>
+    <%= f.label :"Agência" %><br>
     <%= f.text_field :agencia %>
   </div>
   <div class="field">
-    <%= f.label :conta_corrente %><br>
+    <%= f.label :"Conta Corrente" %><br>
     <%= f.text_field :conta_corrente %>
   </div>
   <div class="field">
-    <%= f.label :variacao %><br>
+    <%= f.label :"Variação" %><br>
     <%= f.text_field :variacao %>
   </div>
   <div class="field">
-    <%= f.label :aceite %><br>
+    <%= f.label :"Aceite" %><br>
     <%= f.text_field :aceite %>
   </div>
   <div class="field">
-    <%= f.label :carteira %><br>
+    <%= f.label :"Carteira" %><br>
     <%= f.text_field :carteira %>
   </div>
   <div class="field">
-    <%= f.label :convenio %><br>
+    <%= f.label :"Convênio" %><br>
     <%= f.text_field :convenio %>
   </div>
   <div class="field">
-    <%= f.label :instrucao_juros %><br>
+    <%= f.label :"Instrução de Juros" %><br>
     <%= f.text_field :instrucao_juros %>
   </div>
   <div class="actions">
-    <%= f.submit nil, class: 'btn' %>
+    <%= f.submit "Incluir", class: 'btn btn-primary' %>
   </div>
 <% end %>

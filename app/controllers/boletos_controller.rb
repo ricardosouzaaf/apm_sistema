@@ -1,4 +1,5 @@
 class BoletosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_boleto, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -40,7 +41,7 @@ class BoletosController < ApplicationController
     respond_to do |format|
       if @boleto.save
         format.html do
-          flash[:success] = "Created!"
+          flash[:success] = "Criado!"
           redirect_to boletos_path
         end
         format.json { render :show, status: :created, location: @boleto }
@@ -55,7 +56,7 @@ class BoletosController < ApplicationController
     respond_to do |format|
       if @boleto.update(boleto_params)
         format.html do
-          flash[:success] = "Updated!"
+          flash[:success] = "Atualizado!"
           redirect_to boletos_path
         end
         format.json { render :show, status: :created, location: @boleto }

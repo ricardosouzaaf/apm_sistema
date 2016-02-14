@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :banks
 
   resources :boletos do
@@ -11,6 +12,6 @@ Rails.application.routes.draw do
 
   resources :clients
 
-  root 'boletos#index'
+  root 'clients#index'
 
 end
