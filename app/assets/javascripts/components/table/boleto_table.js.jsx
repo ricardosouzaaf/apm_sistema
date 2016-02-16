@@ -15,12 +15,7 @@ var BoletoTable = React.createClass({
         <div>
 
           <div className="row">
-            <a className="btn-floating btn-large waves-effect waves-light red"
-               href={link}
-               target="_blank"
-                >
-              <i className="material-icons">print</i>
-            </a>
+            <h3>Últimos Boletos Gerados</h3>
           </div>
 
           <table className="bordered">

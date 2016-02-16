@@ -19,7 +19,7 @@ var BoletoPage = React.createClass({
   render: function() {
     return (
         <div>
-          <h3>Boletos</h3>
+          <h3>Gerar Boleto</h3>
 
           <div className="section">
             <BoletoForm handleNewRecord={this._handleNewRecord}/>

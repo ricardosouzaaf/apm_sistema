@@ -16,12 +16,20 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :"Referência" %><br>
-    <%= f.number_field :ref %>
+    <%= f.label :"Nome do Aluno" %><br>
+    <%= f.text_field :student %>
   </div>
   <div class="field">
-    <%= f.label :"Documento" %><br>
-    <%= f.text_field :document %>
+    <%= f.label :"CPF (Pai do Aluno)" %><br>
+    <%= f.text_field :cpf %>
+  </div>
+  <div class="field">
+    <%= f.label :"Email (Pai do Aluno)" %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :"Turma/Classe - Aluno" %><br>
+    <%= f.text_field :turma %>
   </div>
   <div class="field">
     <%= f.label :"Endereço" %><br>

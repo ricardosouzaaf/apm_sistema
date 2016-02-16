@@ -4,8 +4,12 @@
   <thead>
     <tr>
       <th>Nome Completo</th>
-      <th>Documento</th>
-      <th>Referência</th>
+      <th>Nome Aluno</th>
+      <th>CPF (Pai do Aluno)</th>
+      <th>Email (Pai do Aluno)</th>
+      <th>Turma/Classe - Aluno</th>
+      <th>Endereço</th>
+
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -14,8 +18,11 @@
     <% @clients.each do |client| %>
       <tr>
         <td><%= client.name %></td>
-        <td><%= client.document %></td>
-        <td><%= client.ref %></td>
+        <td><%= client.student %></td>
+        <td><%= client.cpf %></td>
+        <td><%= client.email %></td>
+        <td><%= client.turma %></td>
+        <td><%= client.address %></td>
         <td><%= link_to 'Editar', edit_client_path(client) %></td>
         <td><%= link_to 'Excluir', client, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>

@@ -19,7 +19,7 @@ class ClientsController < ApplicationController
     respond_to do |format|
       if @client.save
         format.html do
-          flash[:success] = "Created!"
+          flash[:success] = "Criado!"
           redirect_to clients_path
         end
         format.json { render :show, status: :created, location: @client }
@@ -34,7 +34,7 @@ class ClientsController < ApplicationController
     respond_to do |format|
       if @client.update(client_params)
         format.html do
-          flash[:success] = "Updated!"
+          flash[:success] = "Atualizado!"
           redirect_to clients_path
         end
         format.json { render :show, status: :ok, location: @client }
@@ -48,7 +48,7 @@ class ClientsController < ApplicationController
   def destroy
     @client.destroy
     respond_to do |format|
-      format.html { redirect_to clients_url, notice: 'Client was successfully destroyed.' }
+      format.html { redirect_to clients_url, notice: 'Cliente excluido com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -59,6 +59,6 @@ class ClientsController < ApplicationController
     end
 
     def client_params
-      params.require(:client).permit(:name, :document, :address, :ref)
+      params.require(:client).permit(:name, :student, :cpf, :email, :turma ,:document, :address, :ref)
     end
 end

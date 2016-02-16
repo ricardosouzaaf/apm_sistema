@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: br_production
-  username: br
+  username: postgres
   password: <%= ENV['BR_DATABASE_PASSWORD'] %>

@@ -134,12 +134,12 @@ var BoletoFormModal = React.createClass({
       isOpen: false
     });
 
-    Materialize.toast('salvo!', 4000, 'toast-success');
+    Materialize.toast('Boleto Salvo!', 4000, 'toast-success');
     this.props.onCreate(data);
   },
 
   _submitError(error) {
-    Materialize.toast('falhou! ' + error, 4000, 'toast-fail');
+    Materialize.toast('Ocorreu um erro ao salvar! ' + error, 4000, 'toast-fail');
     console.log(error)
   },
 

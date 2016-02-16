@@ -18,9 +18,34 @@ class BoletosController < ApplicationController
     @boleto = Boleto.new
   end
 
-  def generate
-    @boleto = Boleto.find(params[:format])
-    send_data @boleto.to_b.to(:pdf), :filename => "boleto_#{params[:format]}.#{:pdf}"
+   def generate
+    @dados_boleto = Boleto.find(params[:format])
+    @boleto = Brcobranca::Boleto::Sicredi.new
+    @boleto.cedente = "APM DO ColÉGIO MILITAR "
+    @boleto.documento_cedente = "01064671000189"
+    @boleto.sacado = @dados_boleto.client.name
+    @boleto.sacado_documento = @dados_boleto.client.cpf
+    @boleto.avalista = "APM DO COLÉGIO MILITAR"
+    @boleto.avalista_documento = "01064671000189"
+    @boleto.valor = @dados_boleto.amount
+    @boleto.agencia = "0911"
+    @boleto.conta_corrente = "05945"
+    @boleto.variacao = "19"
+    @boleto.byte_idt = "2"
+    @boleto.posto = "05"
+    @boleto.numero_documento = "10402"
+    @boleto.data_vencimento = @dados_boleto.maturity.to_date
+    @boleto.data_documento = @dados_boleto.date.to_date
+    @boleto.instrucao1 = "SR. CAIXA, APÓS O VENCIMENTO NAO COBRAR MULTA, JUROS OU MORA."
+    @boleto.instrucao2 = "SR. RESPONSÁVEL, O NAO PAGAMENTO DESTE BOLETO IMPLICARÁ A PERDA DO DESCONTO DO VALOR."
+    @boleto.instrucao3 = "VENCIMENTO REFERENTE AO ALUNO: #{@dados_boleto.client.student} / Turma: #{@dados_boleto.client.turma}"
+
+    @boleto.sacado_endereco = @dados_boleto.client.address
+
+    headers['Content-Type']='application/pdf'
+    send_data @boleto.to(:pdf), :filename => "boleto.pdf"
+
+    #send_data @boleto.to_b.to(:pdf), :filename => "boleto_#{params[:format]}.#{:pdf}"
   end
 
   def generate_many
@@ -41,7 +66,7 @@ class BoletosController < ApplicationController
     respond_to do |format|
       if @boleto.save
         format.html do
-          flash[:success] = "Criado!"
+          flash[:success] = "Gerado!"
           redirect_to boletos_path
         end
         format.json { render :show, status: :created, location: @boleto }

@@ -18,9 +18,9 @@ class Boleto < ActiveRecord::Base
     end
 
     if bank.name == "Santander"
-      Brcobranca::Boleto::Santander.new(boleto_data)
+      Brcobranca::Boleto::Sicredi.new(boleto_data)
     else
-      Brcobranca::Boleto::Bradesco.new(boleto_data)
+      Brcobranca::Boleto::Sicredi.new(boleto_data)
     end
   end
 
