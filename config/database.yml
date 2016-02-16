@@ -82,4 +82,4 @@ production:
   <<: *default
   database: br_production
   username: rails
-  password: <%= ENV['BR_DATABASE_PASSWORD'] %>
+  password: t3Wt6ghaIn
